@@ -3,6 +3,7 @@ require 'net/https'
 require 'nokogiri'
 require 'uri'
 require 'yaml'
+require 'open3'
 
 FILE_LOGIN = 'quest_login.yaml'
 FILE_SHOPPING_LIST = 'quest_shopping_list.yaml'
@@ -95,7 +96,11 @@ begin
     diff << "#{k}\n-#{v}\n" unless shop_list.has_key? k
   end
 
-  puts diff
+  unless diff.empty?
+    stdin, stdout, stderr = Open3.popen3("mail -s \"Quest Courses Alert\" #{quest_login['email']}")
+    stdin.puts diff
+    stdin.close
+  end
 rescue SystemCallError => err
   puts err
 end
