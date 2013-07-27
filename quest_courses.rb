@@ -97,6 +97,7 @@ begin
   end
 
   unless diff.empty?
+    puts '>>> Changes detected, sending mail...'
     stdin, stdout, stderr = Open3.popen3("mail -s \"Quest Courses Alert\" #{quest_login['email']}")
     stdin.puts diff
     stdin.close
