@@ -7,7 +7,7 @@ require 'open3'
 
 FILE_LOGIN = 'quest_login.yaml'
 FILE_SHOPPING_LIST = 'quest_shopping_list.yaml'
-TERM='1139'
+TERM='1151'
 
 PATH_LOGIN = '/psp/SS/?cmd=login&languageCd=ENG'
 PATH_ADD_COURSES = "/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?Page=SSR_SSENRL_CART&Action=A&ACAD_CAREER=UG&EMPLID=20392250&INSTITUTION=UWATR&STRM=#{TERM}&TargetFrameName=None"
